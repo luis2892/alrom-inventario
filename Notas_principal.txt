@@ -1,0 +1,11 @@
+# Ver qué cambió
+git status
+
+# Agregar todo
+git add .
+
+# Commit con mensaje claro
+git commit -m "🚀 Añade endpoint POST /login para autenticación"
+
+# Subir a GitHub
+git push origin master
