@@ -1,0 +1,45 @@
+alrom-backend/
+│
+├── app/
+│   ├── main.py             # Punto de inicio del backend
+│   ├── routes/             # Aquí van los endpoints (como /login, /productos)
+│   ├── models/             # Aquí van las clases para la base de datos (ORM)
+│   ├── schemas/            # Validación de datos con Pydantic
+│   ├── database.py         # Conexión a PostgreSQL
+│   └── config.py           # Configuraciones globales
+│
+├── env/                  # No toques esta, es solo del entorno virtual
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+
+¿Qué código será reutilizable?
+- models/, schemas/ y routes/ son 100% reutilizables por módulo (producto, usuario, ventas...).
+- database.py y config.py también son reutilizables como base para cualquier app FastAPI.
+
+=========================================================================================================
+
+PASO 4: Probar la API localmente
+Desde tu terminal, estando dentro de alrom-backend, corre el servidor con:
+uvicorn app.main:app --reload
+
+Ahora abre en tu navegador:
+
+- http://localhost:8000/status → te debe devolver { "status": "API funcionando correctamente" }
+- http://localhost:8000/docs → verás la documentación automática de FastAPI (¡genial para pruebas!)
+
+=========================================================================================================
+
+📁 Estructura completa para el endpoint /users/create
+Vamos a trabajar en tres lugares:
+
+    Archivo             ¿Para qué sirve?
+schemas/user.py ->  Validación de datos de entrada/salida
+routes/user.py  ->  Lógica del endpoint /users/create
+main.py         ->  Para registrar la nueva ruta
+
+=========================================================================================================
+
+
+
