@@ -1,0 +1,9 @@
+🧱 Estructura de carpetas internas
+
+src/
+├── app/
+│   └── login/         # Tu nueva ruta: /login
+├── components/        # Aquí pondrás botones, inputs, layouts
+├── styles/            # Si luego tienes CSS personalizados
+├── assets/            # Para tu logo e imágenes
+└── utils/             # Funciones reutilizables

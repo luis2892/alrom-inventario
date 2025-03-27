@@ -8,9 +8,9 @@ alrom-backend/
 │   ├── database.py         # Conexión a PostgreSQL
 │   └── config.py           # Configuraciones globales
 │
-├── env/                  # No toques esta, es solo del entorno virtual
+├── env/                    # No toques esta, es solo del entorno virtual
 ├── .gitignore
-├── requirements.txt
+├── requirements.txt        # Lista de dependencias
 └── README.md
 
 
