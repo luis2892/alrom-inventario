@@ -14,3 +14,12 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Base para los modelos
 Base = declarative_base()
+
+# Dependency para FastAPI
+def get_db():
+    print("🔌 Conectando a la base de datos...")
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
