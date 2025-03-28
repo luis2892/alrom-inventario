@@ -8,9 +8,9 @@ alrom-backend/
 │   ├── database.py         # Conexión a PostgreSQL
 │   └── config.py           # Configuraciones globales
 │
-├── env/                  # No toques esta, es solo del entorno virtual
+├── env/                    # No toques esta, es solo del entorno virtual
 ├── .gitignore
-├── requirements.txt
+├── requirements.txt        # Lista de dependencias
 └── README.md
 
 
@@ -41,5 +41,10 @@ main.py         ->  Para registrar la nueva ruta
 
 =========================================================================================================
 
+Dentro de main.py:
+# Una vez ejecutado una vez, puedes quitarlo. Solo se necesita para crear las tablas si no existen.
+# from app.database import Base, engine
+# from app.models import user  # Importar el archivo que contiene el modelo
 
+# Base.metadata.create_all(bind=engine)
 
