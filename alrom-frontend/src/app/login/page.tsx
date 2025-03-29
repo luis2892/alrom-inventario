@@ -12,24 +12,29 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setMessage('')
 
     try {
-      const response = await fetch('http://localhost:8000/login-test')
+      const response = await fetch('http://localhost:8000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
       const data = await response.json()
 
-      console.log("Respuesta del backend:", data)
-
-      if (response.ok) {
-        // Simulamos que el login fue exitoso
-        localStorage.setItem('loggedIn', 'true')
-        setMessage('✅ Login exitoso: ' + data.message)
-        router.push('/dashboard') // Redirige a dashboard
-      } else {
-        setMessage('❌ Error al iniciar sesión')
+      if (!response.ok) {
+        throw new Error(data.detail || 'Credenciales incorrectas')
       }
-    } catch (error) {
-        console.error('Error en fetch:', error)
-      setMessage('⚠️ No se pudo conectar al backend')
+
+      localStorage.setItem('token', data.access_token)
+      setMessage('✅ Login exitoso')
+      router.push('/dashboard')
+    } catch (error: any) {
+      console.error('Error:', error)
+      setMessage('❌ Error al iniciar sesión: ' + error.message)
     }
   }
 
